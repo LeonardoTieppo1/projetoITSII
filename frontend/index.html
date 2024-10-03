@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de tarefas</title>
+    <link rel="stylesheet" href="/frontend/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/frontend/assets/css/app.css">
+    <link rel="stylesheet" href="assets/font/all.min.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row mb-6">
+            <div class="col">
+                <div class="d-flex justify-content-start">
+                    <img src="assets/images/favicon.png" alt="Logo" class="img-fluid me-3" width="40px">
+                    <h1>Lista de Tarefas</h1>
+                    
+                </div>
+            </div>
+            <div class="col text-end">
+                <div class="d-flex justify-content-end">
+                <select id="select_filter" class="form-select me-3 w-50">
+                    <option value="all">All</option>
+                    <option value="new">New task</option>
+                    <option value="in progress">In progress</option>
+                    <option value="canceled">Canceled</option>
+                    <option value="done">Completed</option>
+
+                    
+                </select>
+                <button class="btn btn-primary" id="btn_new_task">
+                    <i class="fa-solid fa-square-plus me-2 "></i>
+                    Nova Tarefa
+                </button>
+            </div>
+        </div>
+        <hr class="my-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4 class="m-0 p-0 text-info">
+                <i class="fa-solid fa-user me-2"></i>
+                <span id="username"></span>
+            </h4>
+            <!-- Botão de logout -->
+            <button class="btn btn-danger" id="logout-btn">
+                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                Logout
+            </button>
+        </div>
+        <hr class="my-3">
+
+    </div>
+
+    <div id="task_container"> </div>
+        
+    <div class="row d-none" id="total_task">
+        <div class="col">
+            <h4>Tarefas: <span class="text-info">4</span></h4>
+        </div>
+    </div>
+    
+        <div class="row" id="no_task">
+            <div class="col text-center">
+                <span class="opacity-50">Não existem tarefas para apresentar</span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col text-center">
+                <hr>
+                <p>Gerenciamento de tarefas &copy; 2024</p>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
+

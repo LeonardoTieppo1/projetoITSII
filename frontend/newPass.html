@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualização de Senha</title>
+    <link rel="stylesheet" href="/frontend/assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Atualização de Senha</h2>
+        <form id="update-password-form">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Nova Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Atualizar Senha</button>
+        </form>
+        <div class="back-to-login">
+            <p>Já tem uma conta? <a href="login.html">Voltar para Login</a></p>
+        </div>
+    </div>
+    <script src="/frontend/assets/js/newPass.js"></script>
+</body>
+</html>
