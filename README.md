@@ -78,12 +78,12 @@ O frontend fornece uma UI responsiva construída com **HTML**, **CSS**, **JavaSc
 
 ### Backend
 1. Navegue até a pasta `backend`:
-   ``bash
+   ``
         cd/backend
    ``
 
 2. Instale as dependências necessárias executando:
-      ``bash
+      ``
        npm install
      ``
 
