@@ -86,6 +86,10 @@ O frontend fornece uma UI responsiva construída com **HTML**, **CSS**, **JavaSc
       ``
        npm install
      ``
+3. Depois de instalar as dependências no terminal dentro do backend execute esse código:
+   ``
+     node .\server.js
+   ``
 
 ### Configuração do Frontend
 Para executar o frontend, é recomendável usar a extensão **Live Server** no **VS Code** para fácil hospedagem local.
