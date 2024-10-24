@@ -1,0 +1,24 @@
+header {
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px; /* Definido como 80px para todas as telas */
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: #6a11cb; /* Ou #6c63ff se preferir manter o padrão da maioria das telas */
+    margin-left: 10px;
+}

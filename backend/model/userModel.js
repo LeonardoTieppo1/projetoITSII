@@ -8,9 +8,9 @@ const userModel = {
     getUserCount: (callback) => {
         connection.query("SELECT COUNT(*) AS users FROM users", callback);
     },
-    create: (username, email, password, callback) => {
-        const query = 'INSERT INTO users (username, email, password, created_at, updated_at) VALUES (?, ?, ?, NOW(), NOW())';
-        connection.query(query, [username, email, password], callback);
+    create: (username,password, callback) => {
+        const query = 'INSERT INTO users (username, password, created_at, updated_at) VALUES (?, ?, NOW(), NOW())';
+        connection.query(query, [username, password], callback);
     },
     findByUsername: (username, callback) => {
         const query = 'SELECT * FROM users WHERE username = ?';

@@ -2,14 +2,20 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     event.preventDefault(); // Evita o envio padrão do formulário
 
     const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Verifica se as senhas coincidem
+    if (password !== confirmPassword) {
+        alert('As senhas não coincidem. Por favor, tente novamente.');
+        return; // Impede o envio do formulário se as senhas não coincidem
+    }
 
     // Envia a solicitação de registro
     fetch('http://localhost:3000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, email, password }) // Inclui o e-mail no corpo da requisição
+        body: JSON.stringify({ username, password })
     })
     .then(res => {
         if (!res.ok) {

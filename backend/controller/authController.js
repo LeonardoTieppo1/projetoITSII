@@ -5,10 +5,10 @@ const SECRET_KEY = 'secretkey';
 
 const authController = {
     register: (req, res) => {
-        const { username, email, password } = req.body;
+        const { username, password } = req.body;
 
         // Cria um novo usuário com a senha não criptografada
-        userModel.create(username, email, password, (err, result) => {
+        userModel.create(username, password, (err, result) => {
             if (err) return res.status(500).send(err.message);
             res.status(201).json({ message: 'Usuário registrado com sucesso!' });
         });
