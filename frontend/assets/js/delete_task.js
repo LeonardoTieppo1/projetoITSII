@@ -10,15 +10,15 @@ window.onload = () => {
         if(res.status===200){
             return res.json();
         } else {
-            console.log("no");
+            console.log("Error");
         }
     }).then(task =>{
 
         let sts= {
-            'new':'New task',
+            'new':'New',
             'in progress':'In progress',
             'canceled':'Canceled',
-            'done':'Completed'
+            'done':'Done'
         }
 
         document.querySelector("#task_txt").textContent = task[0].task_text
@@ -31,7 +31,6 @@ document.querySelector("#btn_delete").addEventListener('click', () => {
     fetch(`http://localhost:3000/user/tasks/delete_task/${id_task}`)
     .then(res => {
         if (res.status === 200) {
-            // Redireciona após a exclusão bem-sucedida
             window.location.href = window.location.origin + '/frontend/index.html';
         } else {
             throw new Error("Error!");

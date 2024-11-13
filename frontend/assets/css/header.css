@@ -14,11 +14,11 @@ header {
 }
 
 .logo img {
-    width: 80px; /* Definido como 80px para todas as telas */
+    width: 80px;
 }
 
 .logo h1 {
     font-size: 1.5rem;
-    color: #6a11cb; /* Ou #6c63ff se preferir manter o padrão da maioria das telas */
+    color: #6a11cb;
     margin-left: 10px;
 }

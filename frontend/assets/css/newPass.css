@@ -58,3 +58,23 @@ button:hover {
         margin-top: 100px;
     }
 }
+
+
+.input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#password {
+    padding-right: 30px;  
+    width: 100%; 
+}
+
+.password-reveal {
+    position: absolute;
+    right: 10px; 
+    top: 60%;
+    cursor: pointer;
+    width: 20px; 
+    height: 20px;
+}

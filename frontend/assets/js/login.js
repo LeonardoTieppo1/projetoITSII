@@ -1,14 +1,14 @@
 document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
+    event.preventDefault(); 
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Envia a solicitação de login
+  
     fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password:password }) // Certifique-se de que estes campos estejam corretos
+        body: JSON.stringify({ username, password:password })
     })
     .then(res => {
         if (!res.ok) {
@@ -19,12 +19,36 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         return res.json();
     })
     .then(data => {
-        // Armazena o token no localStorage
+        
         localStorage.setItem('token', data.token);
-        // Redireciona para a página index.html
+        
         window.location.href = 'index.html';
     })
     .catch(err => {
-        alert(err.message); // Exibe o erro em um alerta
+        alert(err.message); 
     });
+});
+
+document.querySelectorAll('.input-group').forEach(group => {
+    const passwordInput = group.querySelector('input[type="password"]');
+    if (passwordInput) {
+        const revealIcon = document.createElement('img');
+        
+        revealIcon.src = '/frontend/assets/img/password-reveal.png';
+        revealIcon.alt = 'Mostrar senha';
+        revealIcon.classList.add('password-reveal');
+        revealIcon.style.cursor = 'pointer';
+
+        group.appendChild(revealIcon);
+
+        revealIcon.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                revealIcon.alt = 'Esconder senha';
+            } else {
+                passwordInput.type = 'password';
+                revealIcon.alt = 'Mostrar senha';
+            }
+        });
+    }
 });

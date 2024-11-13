@@ -5,7 +5,7 @@ let colors = [
     { task_status: 'done', select_bg_color: 'bg-success' }
 ];
 
-let id_user = null; // Declare id_user como global
+let id_user = null;
 
 window.onload = () => {
     const token = localStorage.getItem('token');
@@ -13,11 +13,11 @@ window.onload = () => {
     if (!token) {
         window.location.href = 'login.html';
     } else {
-        id_user = get_user_id_from_token(token); // Atribua o id_user aqui
+        id_user = get_user_id_from_token(token);
         get_user_username(id_user);
         get_user_tasks(id_user);
         
-        // Adicione os event listeners aqui, onde id_user já está definido
+
         document.querySelector("#btn_new_task").addEventListener("click", () => {
             const url = window.location.origin + "/frontend/new_task.html?id_user=" + id_user;
             window.location.href = url;
@@ -31,14 +31,11 @@ window.onload = () => {
 }
 
 document.getElementById('logout-btn').addEventListener('click', function() {
-    // Remove o token do localStorage
     localStorage.removeItem('token');
     
-    // Redireciona o usuário para a página de login
     window.location.href = 'login.html';
 });
 
-// Função para extrair o id_user do token JWT
 function get_user_id_from_token(token) {
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload.id_user;
@@ -47,7 +44,7 @@ function get_user_id_from_token(token) {
 function get_user_username(id_user) {
     fetch(`http://localhost:3000/user/${id_user}`)
         .then(res => {
-            console.log("Resposta da API:", res); // Verifica a resposta
+            console.log("Resposta da API:", res);
             if (res.status === 200) {
                 return res.json();
             } else {
@@ -55,19 +52,17 @@ function get_user_username(id_user) {
             }
         })
         .then(data => {
-            console.log("Dados recebidos:", data); // Verifica os dados
+            console.log("Dados recebidos:", data);
             if (!data || data.length === 0) {
                 console.log("Nenhum usuário encontrado");
             } else {
-                // Verifica se o elemento existe no DOM
                 const usernameElement = document.querySelector("#username");
                 console.log("Elemento username encontrado?", usernameElement !== null);
 
-                // Corrige o acesso ao primeiro item do array
-                const user = data[0]; // Acessa o primeiro objeto no array
+                const user = data[0];
 
                 if (usernameElement && user) {
-                    usernameElement.textContent = user.username; // Atualiza o texto com o username correto
+                    usernameElement.textContent = user.username; 
                     console.log("Username atualizado para:", user.username);
                 }
             }
@@ -87,16 +82,14 @@ function get_user_tasks(id_user, sts = "all") {
             }
         })
         .then(tasks => {
-            // Limpa o contêiner de tarefas
             const taskContainer = document.querySelector("#task_container");
-            taskContainer.innerHTML = ''; // Limpa as tarefas existentes
-
-            // Verifica se há tarefas
+            taskContainer.innerHTML = ''; 
+         
             if (tasks.length === 0) {
                 document.querySelector('#no_task').classList.remove("d-none");
                 document.querySelector("#total_task").classList.add("d-none");
             } else {
-                // Remove a mensagem de "nenhuma tarefa"
+                
                 document.querySelector('#no_task').classList.add('d-none');
                 document.querySelector("#total_task").classList.remove("d-none");
                 document.querySelector("#total_task > div > h4 > span").textContent = tasks.length;
@@ -109,7 +102,7 @@ function get_user_tasks(id_user, sts = "all") {
                                 <div class="col-7">
                                     <div class="d-flex align-items-center">
                                         <h5 class="me-3 text-info"><i class="fa-regular fa-circle-right"></i></h5>
-                                        <h5>${task.task_text}</h5>
+                                        <h5 class="task-text">${task.task_text}</h5>
                                     </div>
                                 </div>
                                 <div class="col-2">

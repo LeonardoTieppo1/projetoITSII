@@ -15,7 +15,6 @@
     color:tomato;
 }
 
-/* styles.css */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f2f5;
@@ -51,13 +50,34 @@ header {
 }
 
 .btn-container {
-    margin-bottom: 50px; /* Aumenta a distância dos botões do rodapé */
+    margin-bottom: 50px;
 }
-/* styles.css */
 .form-select {
-    max-width: 200px; /* Define um tamanho máximo para o select */
+    max-width: 200px; 
 }
 
 .btn {
-    min-width: 120px; /* Define uma largura mínima para os botões */
+    min-width: 120px; 
+}
+
+#char-count {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.task-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.task-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+    min-height: 3rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left;
 }

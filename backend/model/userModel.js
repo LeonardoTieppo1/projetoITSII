@@ -1,4 +1,4 @@
-// models/userModel.js
+
 const connection = require("../config/database");
 
 const userModel = {
@@ -19,9 +19,9 @@ const userModel = {
                 return callback(err, null);
             }
             if (results.length === 0) {
-                return callback(null, null); // Nenhum usuário encontrado
+                return callback(null, null); 
             }
-            callback(null, results[0]); // Retorna o primeiro usuário encontrado
+            callback(null, results[0]);
         });
     },
     updatePassword: (username, newPassword, callback) => {

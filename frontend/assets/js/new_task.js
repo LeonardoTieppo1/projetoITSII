@@ -10,28 +10,33 @@ window.onload = () => {
         return;
     }
 
+    const taskInput = document.querySelector("#txt_task_text");
+    const charCount = document.querySelector("#char-count");
+    const maxLength = taskInput.getAttribute('maxlength');
+
+    taskInput.addEventListener('input', function() {
+        const currentLength = taskInput.value.length;
+        charCount.textContent = `${currentLength}/${maxLength} caracteres`;
+    });
+
     document.querySelector("#btn_guardar").addEventListener('click', () => {
-        let task_text = document.querySelector("#txt_task_text").value;
+        let task_text = taskInput.value;
         let err = document.querySelector("#err");
 
-        // Limpar mensagem de erro
         err.classList.add("d-none");
 
-        // Verificar se o campo está vazio
         if (task_text == null || task_text === "") {
             err.textContent = "Preencha o campo de texto!";
             err.classList.remove("d-none");
             return;
         }
 
-        // Verificar se o texto excede 100 caracteres
         if (task_text.length > 100) {
             err.textContent = "Excedeu o número de caracteres!";
             err.classList.remove("d-none");
             return;
         }
 
-        // Realizar o fetch apenas após validar o campo
         fetch(`http://localhost:3000/user/tasks/new_task`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -45,12 +50,10 @@ window.onload = () => {
             }
         })
         .then(data => {
-            // Se a tarefa foi criada com sucesso, redireciona para a página inicial
             console.log("Tarefa criada com sucesso:", data);
             window.location.href = window.location.origin + '/frontend/index.html';
         })
         .catch(error => {
-            // Exibe uma mensagem de erro na página
             err.textContent = "Erro ao salvar a tarefa. Tente novamente!";
             err.classList.remove("d-none");
             console.error("Erro:", error);
