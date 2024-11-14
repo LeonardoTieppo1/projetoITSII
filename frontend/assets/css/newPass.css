@@ -74,6 +74,7 @@ button:hover {
     position: absolute;
     right: 10px; 
     top: 60%;
+    transform: translateY(-50%); 
     cursor: pointer;
     width: 20px; 
     height: 20px;
